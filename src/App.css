@@ -13,6 +13,25 @@
   }
 }
 
+.app{
+  color : blue;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn{
+  background-color: rgb(204, 54, 54);
+  color: white;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
