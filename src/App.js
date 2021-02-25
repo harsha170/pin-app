@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PinInput from "react-pin-input";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.PureComponent {
+  state = {
+    value: ""
+  };
+
+  onChange = value => {
+    this.setState({ value });
+  };
+
+  onClear = () => {
+    this.setState({
+      value: ""
+    });
+    this.pin.clear();
+  };
+
+  render() {
+    const { value } = this.state;
+    return (
+      <>
+      <h2>Login</h2>
+      <div className="app">
+        <PinInput
+          length={4}
+          focus
+          // disabled
+          secret
+          ref={p => (this.pin = p)}
+          type="numeric"
+          onChange={this.onChange}
+        />
+        {/* <div>{value}</div> */}
+        <button className="btn" onClick={this.onClear}>Clear</button>
+      </div>
+      </>
+    );
+  }
 }
-
 export default App;
